@@ -15,6 +15,7 @@ CREATE TABLE CourseOfferings (
     year_and_quarter CHAR(11),
     location CHAR(9),
     max_enrollment INTEGER,
+    course_time CHAR(20),
     professor_fname CHAR(15),
     professor_lname CHAR(15),
     PRIMARY KEY (unique_enroll_code)
@@ -89,7 +90,7 @@ CREATE TRIGGER check_enrolled_count
 BEGIN
     SELECT
         CASE
-            WHEN ((SELECT COUNT(*) FROM Enrolled E WHERE NEW.stud_id = E.stud_id) >= 5) THEN
+            WHEN (SELECT COUNT(*) FROM ENROLLED E WHERE NEW.stud_id = E.stud_id AND E.course_code IN (SELECT TMP2.unique_enroll_code FROM CourseOfferings TMP2 WHERE TMP2.year_and_quarter = (SELECT TMP.year_and_quarter FROM CourseOfferings TMP WHERE NEW.course_code=TMP.unique_enroll_code)) >= 5) THEN
                 RAISE (ABORT, 'Student already enrolled in maximum number of courses')
         END;
 END;
