@@ -1,3 +1,4 @@
+package net.sqlitetutorial;
 class Majors {
     String name;
     String department;

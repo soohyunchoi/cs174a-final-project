@@ -1,3 +1,4 @@
+package net.sqlitetutorial;
 class Students {
     String perm_id;
     String name;
