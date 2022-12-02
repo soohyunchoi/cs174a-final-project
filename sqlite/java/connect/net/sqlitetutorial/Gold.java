@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Struct;
 import java.sql.ResultSet;
 import java.text.MessageFormat;
 import java.util.*;
@@ -11,6 +12,45 @@ import java.security.NoSuchAlgorithmException;
 
 import net.sqlitetutorial.Enrolled;
 public class Gold {
+
+    List<String> QUARTERS = Arrays.asList("Winter", "Spring", "Fall");
+
+    class YearQuarter {
+        int year;
+        String quarter;
+        YearQuarter(int year, String quarter) {
+            this.year = year;
+            this.quarter = quarter;
+        }
+        public boolean lessThan(YearQuarter b) {
+            if(this.year < b.year)
+                return true;
+            else if (this.year > b.year)
+                return false;
+            return QUARTERS.indexOf(this.quarter) < QUARTERS.indexOf(b.quarter);
+        }
+        @Override
+        public boolean equals(Object other){
+            if (other == null) return false;
+            if (other == this) return true;
+            if (!(other instanceof YearQuarter)) return false;
+            YearQuarter otherMyClass = (YearQuarter)other;
+            return otherMyClass.year == this.year && otherMyClass.quarter.equals(this.quarter);
+        }
+    }
+    public class Pair<L,R> {
+        private L l;
+        private R r;
+        public Pair(L l, R r){
+            this.l = l;
+            this.r = r;
+        }
+        public L getL(){ return l; }
+        public R getR(){ return r; }
+        public void setL(L l){ this.l = l; }
+        public void setR(R r){ this.r = r; }
+    }
+
     Connection conn;
     Gold(Connection conn) {
         this.conn = conn;
@@ -75,6 +115,26 @@ public class Gold {
             System.out.println(e);
         }
         return enrollments;
+    }
+    private List<Courses> list_enrolled_courses_by_quarter(String stud_id, String year_and_quarter) {
+        // Retrieve course codes related to stud_id
+        List<String> unique_enrollment_codes = new ArrayList<String>();
+        List<String> course_numbers = new ArrayList<String>();
+        List<Courses> courses = new ArrayList<Courses>();
+        String query = MessageFormat.format(
+            "SELECT * FROM Courses TMP INNER JOIN (SELECT C.course_number FROM (SELECT course_code FROM Enrolled WHERE stud_id = ''{0}'') ENROLLEDCOURSES INNER JOIN CourseOfferings C ON C.unique_enroll_code=ENROLLEDCOURSES.course_code AND C.year_and_quarter=''{1}'') COURSES2 ON COURSES2.course_number=TMP.course_number", 
+            stud_id,
+            year_and_quarter);
+        try (Statement stmt = conn.createStatement()) {
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                courses.add(new Courses(rs.getString("course_number"), rs.getString("title")));
+            }
+        } catch (SQLException e) {
+            System.out.print("list_enrolled_courses 3: ");
+            System.out.println(e);
+        }
+        return courses;
     }
     private List<Courses> list_enrolled_courses(String stud_id) {
         // Retrieve course codes related to stud_id
@@ -192,6 +252,10 @@ public class Gold {
      *      PUBLIC FUNCTIONS
      */
 
+    public YearQuarter parseYearQuarter(String year_and_quarter) {
+        String[] split = year_and_quarter.split(" ");
+        return new YearQuarter(Integer.parseInt(split[0]), split[1]);
+    }
     public void addCourse(String stud_id, int unique_enrollment_code) {
         Enrolled enrolled = new Enrolled(stud_id, unique_enrollment_code);
         insert_enrolled(enrolled);
@@ -208,21 +272,7 @@ public class Gold {
         return courses;
     }
     public List<Courses> listCoursesEnrolledQuarter(String stud_id, String year_and_quarter) {
-        List<Courses> courses = list_enrolled_courses(stud_id);
-        List<Courses> result = new ArrayList<Courses>();
-        for(int i = 0; i < courses.size(); i++) {
-            List<CourseOfferings> course_offerings = list_course_offerings_by_number(courses.get(i).course_number);
-            for(int j = 0; j < course_offerings.size(); j++) {
-                if(course_offerings.get(j).year_and_quarter.equals(year_and_quarter)) {
-                    result.add(courses.get(i));
-                    break;
-                }
-            }
-        }
-        for(int i = 0; i < result.size(); i++) {
-            // System.out.println(result.get(i).course_number + ", " + result.get(i).title);
-        }
-        return result;
+        return list_enrolled_courses_by_quarter(stud_id, year_and_quarter);
     }
     public List<String> listGradesEnrolledQuarter(String stud_id, String year_and_quarter) {
         List<Enrolled> enrollments = list_enrollments(stud_id);
@@ -234,6 +284,46 @@ public class Gold {
             }
         }
         return grades;
+    }
+    public void makeAPlan(String stud_id, String current_year_and_quarter) {
+        List<Courses> courses = listCoursesEnrolled(stud_id);
+        List<Courses> in_progress_courses = listCoursesEnrolledQuarter(stud_id, current_year_and_quarter);
+        List<Courses> mandatory = list_mandatory_courses(stud_id);
+        List<Courses> done_courses = new ArrayList<Courses>(courses);
+        List<Courses> needed_courses = new ArrayList<Courses>(mandatory);
+        List<Pair<CourseOfferings, String>> result = new ArrayList<Pair<CourseOfferings, String>>();
+        // done_courses.removeAll(in_progress_courses);
+        // needed_courses.removeAll(done_courses);
+        // needed_courses.removeAll(in_progress_courses);
+        YearQuarter graduation = parseYearQuarter(current_year_and_quarter);
+        for(int i = 0; i < needed_courses.size(); i++) {
+            List<CourseOfferings> offerings = list_course_offerings_by_number(needed_courses.get(i).course_number);
+            CourseOfferings earliest_offering = offerings.get(0);
+            for(int j = 1; j < offerings.size(); j++) {
+                if(parseYearQuarter(earliest_offering.year_and_quarter).lessThan(parseYearQuarter(offerings.get(i).year_and_quarter)))
+                    earliest_offering = offerings.get(i);
+            }
+            result.add(new Pair<CourseOfferings, String>(earliest_offering, needed_courses.get(i).title));
+            if(graduation.lessThan(parseYearQuarter(earliest_offering.year_and_quarter)));
+                graduation = parseYearQuarter(earliest_offering.year_and_quarter);
+        }
+
+        // print results
+        System.out.println("Quarter by Quarter plan for student " + stud_id + "\n");
+        System.out.println(current_year_and_quarter + " (in progress):");
+        for(int i = 0; i < in_progress_courses.size(); i++) {
+            System.out.println(in_progress_courses.get(i).course_number + ": " + in_progress_courses.get(i).title);
+        }
+        for(int year = parseYearQuarter(current_year_and_quarter).year; year < graduation.year + 1; year++) {
+            for(int q = 0; q < 3; q++) {
+                System.out.println(year + " " + QUARTERS.get(q) + ":");
+                    for(int i = 0; i < result.size(); i++) {
+                        if(parseYearQuarter(result.get(i).l.year_and_quarter).equals(new YearQuarter(year, QUARTERS.get(q)))) {
+                            System.out.println("\t" + result.get(i).l.course_number + ": " + result.get(i).r);
+                        }
+                    }
+            }
+        }
     }
     public void requirementsCheck(String stud_id, String year_and_quarter, boolean count_in_progress) {
         Students s = get_student(stud_id);
