@@ -633,7 +633,7 @@ public class Gold {
                             latest_prereq = here;
                         }
                     }
-                    if((new YearQuarter(year, QUARTERS.get(q))).lessThan(parseYearQuarter(latest_prereq.year_and_quarter)))
+                    if((new YearQuarter(year, QUARTERS.get(q))).lessThan(parseYearQuarter(latest_prereq.year_and_quarter)) || (new YearQuarter(year, QUARTERS.get(q))).equals(parseYearQuarter(latest_prereq.year_and_quarter)))
                         continue;
                     result_electives.add(new Pair<CourseOffering, String>(found_offering, electives.get(i).title));
                     accounted_for_courses.add(electives.get(i));
