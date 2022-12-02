@@ -1,0 +1,163 @@
+Course Number,Enrollment Code,Quarter + Year,Course Title,Professor Name,Course Location,Course Times,Max Enrollment Limit,Prerequisite Courses
+ASTR1,23424,2019 Fall,Astronomy Intro II,Joe Brown,STAR103,"M, W: 9:00am -10:15am",135,
+ASTR1,83492,2020 Fall,Astronomy Intro II,Joe Brown,STAR103,"M, W: 9:00am -10:15am",135,
+ASTR1,10231,2021 Fall,Astronomy Intro II,Joe Brown,STAR103,"T, R: 10:00am -11:45am",135,
+ASTR1,32103,2022 Fall,Astronomy Intro II,Joe Brown,HALL231,"T, R: 10:00am -11:45am",135,
+ASTR1,32187,2023 Fall,Astronomy Intro II,Joe Brown,HALL231,"T, R: 10:00am -11:45am",135,
+ASTR1,32000,2024 Fall,Astronomy Intro II,Joe Brown,HALL231,"T, R: 10:00am -11:45am",135,
+ASTR1,32555,2025 Fall,Astronomy Intro II,Joe Brown,HALL231,"T, R: 10:00am -11:45am",135,
+ASTR2,99543,2020 Winter,Astronomy Intro II,Jane Doe,MRNT242,"T, R: 10:00am -11:45am",120,ASTR1
+ASTR2,87953,2021 Winter,Astronomy Intro II,Jane Doe,MRNT242,"T, R: 10:00am -11:45am",120,ASTR1
+ASTR2,41980,2022 Winter,Astronomy Intro II,Jane Doe,MRNT242,"M, W: 9:00am -10:15am",120,ASTR1
+ASTR2,42521,2023 Winter,Astronomy Intro II,Jane Doe,MRNT242,"M, W: 9:00am -10:15am",120,ASTR1
+ASTR2,42509,2024 Winter,Astronomy Intro II,Jane Doe,MRNT242,"M, W: 9:00am -10:15am",120,ASTR1
+ASTR2,42577,2025 Winter,Astronomy Intro II,Jane Doe,MRNT242,"M, W: 9:00am -10:15am",120,ASTR1
+ASTR5,13324,2020 Spring,Astronomy Lab,John Polk,LTAC341,"M, W: 10:45am - 12:00pm",115,ASTR2
+ASTR5,14513,2021 Spring,Astronomy Lab,John Polk,LTAC341,"M, W: 10:45am - 12:00pm",115,ASTR2
+ASTR5,43530,2022 Spring,Astronomy Lab,Steven Aaron,STAR104,"M, W: 10:45am - 12:00pm",115,ASTR2
+ASTR5,54023,2023 Spring,Astronomy Lab,Steven Aaron,STAR104,"M, W: 10:45am - 12:00pm",115,ASTR2
+ASTR5,54011,2024 Spring,Astronomy Lab,Steven Aaron,STAR104,"M, W: 10:45am - 12:00pm",115,ASTR2
+ASTR5,54045,2025 Spring,Astronomy Lab,Steven Aaron,STAR104,"M, W: 10:45am - 12:00pm",115,ASTR2
+ASTR101,36721,2019 Fall,Solar Systems,Jay Appleton,MRNT231,"M, W, F: 2:00pm - 3:15pm",90,ASTR5
+ASTR101,54290,2020 Fall,Solar Systems,Jay Appleton,MRNT231,"M, W, F: 2:00pm - 3:15pm",90,ASTR5
+ASTR101,54902,2021 Fall,Solar Systems,Jessica Smith,MRNT231,"M, W, F: 2:00pm - 3:15pm",90,ASTR5
+ASTR101,43214,2022 Fall,Solar Systems,Jessica Smith,LTAC341,"M, W, F: 2:00pm - 3:15pm",90,ASTR5
+ASTR101,65093,2023 Fall,Solar Systems,Jessica Smith,LTAC341,"M, W, F: 2:00pm - 3:15pm",90,ASTR5
+ASTR101,68134,2024 Fall,Solar Systems,Jessica Smith,LTAC341,"M, W, F: 2:00pm - 3:15pm",90,ASTR5
+ASTR101,65489,2025 Fall,Solar Systems,Jessica Smith,LTAC341,"M, W, F: 2:00pm - 3:15pm",90,ASTR5
+ASTR104,97341,2019 Winter,Beyond Solar Systems,Amara Dale,STAR104,"T, R: 3:30pm - 4:45pm",110,ASTR101
+ASTR104,12394,2020 Winter,Beyond Solar Systems,Amara Dale,STAR104,"T, R: 3:30pm - 4:45pm",110,ASTR101
+ASTR104,54389,2021 Winter,Beyond Solar Systems,Amara Dale,STAR104,"T, R: 3:30pm - 4:45pm",110,ASTR101
+ASTR104,75438,2022 Winter,Beyond Solar Systems,Jenna Davis,LTAC320,"T, R: 3:30pm - 4:45pm",110,ASTR101
+ASTR104,34157,2023 Winter,Beyond Solar Systems,Jenna Davis,LTAC320,"T, R: 3:30pm - 4:45pm",110,ASTR101
+ASTR104,68301,2024 Winter,Beyond Solar Systems,Jenna Davis,LTAC320,"T, R: 3:30pm - 4:45pm",110,ASTR101
+ASTR104,95474,2025 Winter,Beyond Solar Systems,Jenna Davis,LTAC320,"T, R: 3:30pm - 4:45pm",110,ASTR101
+ASTR177,43821,2019 Winter,Astrophysics,Sarah Waters,SIMB321,"M, W: 4:45pm - 6:00pm",77,ASTR5
+ASTR177,84291,2020 Winter,Astrophysics,Sarah Waters,SIMB321,"M, W: 4:45pm - 6:00pm",77,ASTR5
+ASTR177,57429,2021 Winter,Astrophysics,Sarah Waters,SIMB321,"M, W: 4:45pm - 6:00pm",77,ASTR5
+ASTR177,75483,2022 Winter,Astrophysics,Sarah Waters,SIMB321,"M, W: 4:45pm - 6:00pm",77,ASTR5
+ASTR177,43140,2023 Winter,Astrophysics,Sarah Waters,SIMB321,"M, W: 4:45pm - 6:00pm",77,ASTR5
+ASTR177,98021,2024 Winter,Astrophysics,Sarah Waters,SIMB321,"M, W: 4:45pm - 6:00pm",77,ASTR5
+ASTR177,77543,2025 Winter,Astrophysics,Sarah Waters,SIMB321,"M, W: 4:45pm - 6:00pm",77,ASTR5
+ASTR184,49201,2019 Spring,Stellar Evolution,Jenna Davis,HALL231,"M, W: 4:45pm - 6:00pm",30,"ASTR104, ASTR177"
+ASTR184,54391,2020 Spring,Stellar Evolution,Jenna Davis,HALL231,"M, W: 4:45pm - 6:00pm",30,"ASTR104, ASTR177"
+ASTR184,57438,2021 Spring,Stellar Evolution,Jenna Davis,HALL231,"M, W: 4:45pm - 6:00pm",30,"ASTR104, ASTR177"
+ASTR184,41928,2022 Spring,Stellar Evolution,Jenna Davis,STAR104,"M, W: 4:45pm - 6:00pm",30,"ASTR104, ASTR177"
+ASTR184,94415,2023 Spring,Stellar Evolution,Jenna Davis,STAR104,"M, W: 4:45pm - 6:00pm",30,"ASTR104, ASTR177"
+ASTR184,10009,2024 Spring,Stellar Evolution,Jenna Davis,STAR104,"M, W: 4:45pm - 6:00pm",30,"ASTR104, ASTR177"
+ASTR184,12009,2025 Spring,Stellar Evolution,Jenna Davis,STAR104,"M, W: 4:45pm - 6:00pm",30,"ASTR104, ASTR177"
+ASTR199,34810,2019 Fall,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,19238,2020 Winter,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,12038,2020 Spring,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,65473,2020 Fall,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,99999,2021 Winter,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,90439,2021 Spring,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,76767,2021 Fall,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,43188,2022 Winter,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,43112,2022 Spring,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,22122,2022 Fall,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,89402,2023 Winter,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,78941,2023 Spring,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,44444,2023 Fall,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,34155,2024 Winter,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,90002,2024 Spring,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,54335,2024 Fall,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,77897,2025 Winter,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,66765,2025 Spring,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+ASTR199,45377,2025 Fall,Independent Work,Your Self,REMO999,F: 5:00pm -7:00pm,10,
+COMM1A,39165,2019 Fall,Communications I,Nawa Khan,MRNT242,"M, W, F: 2:00pm - 3:15pm",170,
+COMM1A,34109,2020 Fall,Communications I,Nawa Khan,MRNT242,"M, W, F: 2:00pm - 3:15pm",170,
+COMM1A,77890,2021 Fall,Communications I,Nawa Khan,MRNT242,"M, W, F: 2:00pm - 3:15pm",170,
+COMM1A,46888,2022 Fall,Communications I,Jeanna Li,MRNT242,"M, W, F: 2:00pm - 3:15pm",170,
+COMM1A,45248,2023 Fall,Communications I,Jeanna Li,MRNT242,"M, W, F: 2:00pm - 3:15pm",170,
+COMM1A,55654,2024 Fall,Communications I,Jeanna Li,MRNT242,"M, W, F: 2:00pm - 3:15pm",170,
+COMM1A,12093,2025 Fall,Communications I,Jeanna Li,MRNT242,"M, W, F: 2:00pm - 3:15pm",170,
+COMM1B,29091,2019 Winter,Communications II,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1A
+COMM1B,87988,2020 Winter,Communications II,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1A
+COMM1B,49666,2021 Winter,Communications II,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1A
+COMM1B,56721,2022 Winter,Communications II,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1A
+COMM1B,45453,2023 Winter,Communications II,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1A
+COMM1B,55892,2024 Winter,Communications II,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1A
+COMM1B,77889,2025 Winter,Communications II,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1A
+COMM1C,32018,2019 Spring,Communications III,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1B
+COMM1C,76888,2020 Spring,Communications III,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1B
+COMM1C,67512,2021 Spring,Communications III,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1B
+COMM1C,90014,2022 Spring,Communications III,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1B
+COMM1C,22319,2023 Spring,Communications III,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1B
+COMM1C,84448,2024 Spring,Communications III,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1B
+COMM1C,56455,2025 Spring,Communications III,Leila Stevens,LOCH776,"W, F: 3:30pm - 4:45pm",110,COMM1B
+COMM10,43819,2019 Fall,Team Dynamics,Jeff Simons,SIMB321,"M, W: 4:45pm - 6:00pm",100,COMM1A
+COMM10,99431,2020 Fall,Team Dynamics,Jeff Simons,SIMB321,"M, W: 4:45pm - 6:00pm",100,COMM1A
+COMM10,34286,2021 Fall,Team Dynamics,Jeff Simons,SIMB321,"M, W: 4:45pm - 6:00pm",100,COMM1A
+COMM10,45019,2022 Fall,Team Dynamics,Jeff Simons,SIMB321,"M, W: 4:45pm - 6:00pm",100,COMM1A
+COMM10,34201,2023 Fall,Team Dynamics,Jeff Simons,SIMB321,"M, W: 4:45pm - 6:00pm",100,COMM1A
+COMM10,56390,2024 Fall,Team Dynamics,Jeff Simons,SIMB321,"M, W: 4:45pm - 6:00pm",100,COMM1A
+COMM10,54289,2025 Fall,Team Dynamics,Jeff Simons,SIMB321,"M, W: 4:45pm - 6:00pm",100,COMM1A
+COMM88,41830,2019 Fall,Digital Media,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",75,COMM1C
+COMM88,81673,2020 Fall,Digital Media,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",75,COMM1C
+COMM88,90085,2021 Fall,Digital Media,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",75,COMM1C
+COMM88,88894,2022 Fall,Digital Media,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",75,COMM1C
+COMM88,54297,2023 Fall,Digital Media,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",75,COMM1C
+COMM88,62091,2024 Fall,Digital Media,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",75,COMM1C
+COMM88,54977,2025 Fall,Digital Media,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",75,COMM1C
+COMM120,54142,2019 Winter,Risk Communication,Lauren James,MRNT242,"M, W: 4:45pm - 6:00pm",60,COMM88
+COMM120,54190,2020 Winter,Risk Communication,Lauren James,MRNT242,"M, W: 4:45pm - 6:00pm",60,COMM88
+COMM120,65389,2021 Winter,Risk Communication,Lauren James,MRNT242,"M, W: 4:45pm - 6:00pm",60,COMM88
+COMM120,42910,2022 Winter,Risk Communication,Lauren James,MRNT242,"M, W: 4:45pm - 6:00pm",60,COMM88
+COMM120,54392,2023 Winter,Risk Communication,Lauren James,MRNT242,"M, W: 4:45pm - 6:00pm",60,COMM88
+COMM120,65020,2024 Winter,Risk Communication,Lauren James,MRNT242,"M, W: 4:45pm - 6:00pm",60,COMM88
+COMM120,34169,2025 Winter,Risk Communication,Lauren James,MRNT242,"M, W: 4:45pm - 6:00pm",60,COMM88
+COMM134,31732,2019 Winter,Behavioral Study,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",60,COMM88
+COMM134,76849,2020 Winter,Behavioral Study,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",60,COMM88
+COMM134,65392,2021 Winter,Behavioral Study,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",60,COMM88
+COMM134,54829,2022 Winter,Behavioral Study,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",60,COMM88
+COMM134,43294,2023 Winter,Behavioral Study,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",60,COMM88
+COMM134,32910,2024 Winter,Behavioral Study,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",60,COMM88
+COMM134,13911,2025 Winter,Behavioral Study,Kane Lark,STAR542,"M, W: 6:15pm - 7:30pm",60,COMM88
+COMM155,43920,2019 Spring,Marketing Strategy,Sarah Waters,MRNT315,"T, R: 1:00pm - 2:15pm",50,"COMM120, COMM134"
+COMM155,41903,2020 Spring,Marketing Strategy,Sarah Waters,MRNT315,"T, R: 1:00pm - 2:15pm",50,"COMM120, COMM134"
+COMM155,45291,2021 Spring,Marketing Strategy,Sarah Waters,MRNT315,"T, R: 1:00pm - 2:15pm",50,"COMM120, COMM134"
+COMM155,33390,2022 Spring,Marketing Strategy,Sarah Waters,MRNT315,"T, R: 1:00pm - 2:15pm",50,"COMM120, COMM134"
+COMM155,40314,2023 Spring,Marketing Strategy,Sarah Waters,MRNT315,"T, R: 1:00pm - 2:15pm",50,"COMM120, COMM134"
+COMM155,43193,2024 Spring,Marketing Strategy,Sarah Waters,MRNT315,"T, R: 1:00pm - 2:15pm",50,"COMM120, COMM134"
+COMM155,96530,2025 Spring,Marketing Strategy,Sarah Waters,MRNT315,"T, R: 1:00pm - 2:15pm",50,"COMM120, COMM134"
+COMM167,37195,2019 Fall,Macropublicity,Joseph Stern,MRNT217,F: 9:00am - 11:00am,60,COMM155
+COMM167,53811,2020 Fall,Macropublicity,Joseph Stern,MRNT217,F: 9:00am - 11:00am,60,COMM155
+COMM167,95724,2021 Fall,Macropublicity,Joseph Stern,MRNT217,F: 9:00am - 11:00am,60,COMM155
+COMM167,22099,2022 Fall,Macropublicity,Joseph Stern,MRNT217,F: 9:00am - 11:00am,60,COMM155
+COMM167,84348,2023 Fall,Macropublicity,Joseph Stern,MRNT217,F: 9:00am - 11:00am,60,COMM155
+COMM167,56895,2024 Fall,Macropublicity,Joseph Stern,MRNT217,F: 9:00am - 11:00am,60,COMM155
+COMM167,53328,2025 Fall,Macropublicity,Joseph Stern,MRNT217,F: 9:00am - 11:00am,60,COMM155
+COMM184A,75402,2019 Spring,Capstone I,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,"COMM120, COMM134"
+COMM184A,73031,2020 Spring,Capstone I,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,"COMM120, COMM134"
+COMM184A,45243,2021 Spring,Capstone I,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,"COMM120, COMM134"
+COMM184A,14866,2022 Spring,Capstone I,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,"COMM120, COMM134"
+COMM184A,54910,2023 Spring,Capstone I,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,"COMM120, COMM134"
+COMM184A,65390,2024 Spring,Capstone I,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,"COMM120, COMM134"
+COMM184A,54900,2025 Spring,Capstone I,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,"COMM120, COMM134"
+COMM184B,89210,2019 Fall,Capstone II,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,COMM184A
+COMM184B,83951,2020 Fall,Capstone II,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,COMM184A
+COMM184B,94801,2021 Fall,Capstone II,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,COMM184A
+COMM184B,43175,2022 Fall,Capstone II,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,COMM184A
+COMM184B,65092,2023 Fall,Capstone II,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,COMM184A
+COMM184B,81467,2024 Fall,Capstone II,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,COMM184A
+COMM184B,77791,2025 Fall,Capstone II,Cap Stone,JOLL321,"T, R: 3:00pm - 4:45pm",50,COMM184A
+COMM199,67900,2019 Fall,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,65820,2020 Winter,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,54189,2020 Spring,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,45281,2020 Fall,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,65313,2021 Winter,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,48482,2021 Spring,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,88492,2021 Fall,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,54218,2022 Winter,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,87654,2022 Spring,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,32132,2022 Fall,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,87123,2023 Winter,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,90991,2023 Spring,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,43189,2023 Fall,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,54251,2024 Winter,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,65378,2024 Spring,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,34500,2024 Fall,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,98564,2025 Winter,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,50055,2025 Spring,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
+COMM199,42009,2025 Fall,Independent Work,Your Self,REMO999,F: 7:00pm - 9:00pm,10,
