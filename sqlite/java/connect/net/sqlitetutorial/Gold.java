@@ -257,7 +257,7 @@ public class Gold {
         // Retrieve course codes related to stud_id
         List<CourseOffering> course_offerings = new ArrayList<CourseOffering>();
         String query = MessageFormat.format(
-            "SELECT * FROM CourseOfferings CO INNER JOIN (SELECT E.course_code FROM Enrolled E WHERE E.stud_id = '918994') EE ON EE.course_code = CO.unique_enroll_code", 
+            "SELECT * FROM CourseOfferings CO INNER JOIN (SELECT E.course_code FROM Enrolled E WHERE E.stud_id = ''{0}'') EE ON EE.course_code = CO.unique_enroll_code", 
             stud_id);
         try (Statement stmt = conn.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
@@ -531,8 +531,8 @@ public class Gold {
                 if(done_courses.get(k).course_number.equals(temp.get(i).course_number))
                     break;
             }
-            done_course_offerings.put(temp.get(i).course_number, new Pair<CourseOffering, String>(temp.get(i), done_courses.get(k).title));
             result.add(new Pair<CourseOffering, String>(temp.get(i), done_courses.get(k).title));
+            done_course_offerings.put(temp.get(i).course_number, new Pair<CourseOffering, String>(temp.get(i), done_courses.get(k).title));
             // find earliest course
             if(parseYearQuarter(temp.get(i).year_and_quarter).lessThan(parseYearQuarter(earliest_course.year_and_quarter)))
                 earliest_course = temp.get(i);
@@ -540,21 +540,8 @@ public class Gold {
         // add mandatory courses
 
         YearQuarter graduation = parseYearQuarter(current_year_and_quarter);
-        // for(int i = 0; i < needed_courses.size(); i++) {
-        //     List<CourseOffering> offerings = list_course_offerings_by_number(needed_courses.get(i).course_number);
-        //     CourseOffering earliest_offering = offerings.get(0);
-        //     for(int j = 1; j < offerings.size(); j++) {
-        //         if(parseYearQuarter(earliest_offering.year_and_quarter).lessThan(parseYearQuarter(offerings.get(i).year_and_quarter)))
-        //             earliest_offering = offerings.get(i);
-        //     }
-        //     result.add(new Pair<CourseOffering, String>(earliest_offering, needed_courses.get(i).title));
-        //     if(graduation.lessThan(parseYearQuarter(earliest_offering.year_and_quarter)));
-        //         graduation = parseYearQuarter(earliest_offering.year_and_quarter);
-        // }
         List<Integer> done = new ArrayList<Integer>(Collections.nCopies(needed_courses.size(), 0));
-        // for(int i = 0; i < result.size(); i++ ){
-        //     System.out.println(result.get(i).l.course_number);
-        // }
+
         while(result.size() < needed_courses.size() + done_courses.size()) {
             outer:
             for(int i = 0; i < needed_courses.size(); i++) {
@@ -643,9 +630,15 @@ public class Gold {
         System.out.println("\n- * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * -\n");
         System.out.println("\033[1mQUARTER BY QUARTER PLAN FOR STUDENT " + stud_id + "\033[0m\n(* denotes major a requirement)\n");
         System.out.println("Major elective requirement: " + getMinNumberofElectives() + " electives.\n");
-        int q = QUARTERS.indexOf(parseYearQuarter(current_year_and_quarter).quarter);
+        boolean start = true;
         for(int year = parseYearQuarter(earliest_course.year_and_quarter).year; year < graduation.year + 1; year++) {
-            for(q = 0; q < 3; q++) {
+            for(int q = 0; q < 3; q++) {
+                if(start) {
+                    q = QUARTERS.indexOf(parseYearQuarter(current_year_and_quarter).quarter);
+                    start = false;
+                }
+                if(year == graduation.year && q == 2)
+                    continue;
                 System.out.println(year + " " + QUARTERS.get(q) + ":");
                 for(int i = 0; i < result.size(); i++) {
                     if(parseYearQuarter(result.get(i).l.year_and_quarter).equals(new YearQuarter(year, QUARTERS.get(q)))) {
