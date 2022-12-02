@@ -416,9 +416,10 @@ public class Gold {
                         latest_prereq = here;
                 }
                 List<CourseOfferings> offerings = list_course_offerings_by_number(needed_courses.get(i).course_number);
-                CourseOfferings earliest_offering = latest_prereq;
+                CourseOfferings earliest_offering = new CourseOfferings("9999 Winter");
                 for(int j = 0; j < offerings.size(); j++) {
-                    if(parseYearQuarter(earliest_offering.year_and_quarter).lessThan(parseYearQuarter(offerings.get(j).year_and_quarter)))
+                    if(parseYearQuarter(latest_prereq.year_and_quarter).lessThan(parseYearQuarter(offerings.get(j).year_and_quarter))
+                        && parseYearQuarter(offerings.get(j).year_and_quarter).lessThan(parseYearQuarter(earliest_offering.year_and_quarter)))
                         earliest_offering = offerings.get(j);
                 }
                 result.add(new Pair<CourseOfferings, String>(earliest_offering, needed_courses.get(i).title));
