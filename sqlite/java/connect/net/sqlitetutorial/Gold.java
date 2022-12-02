@@ -517,11 +517,15 @@ public class Gold {
         List<Course> mandatory = list_mandatory_courses();
         List<Course> needed_courses = new ArrayList<Course>(mandatory);
         List<Course> done_courses = new ArrayList<Course>(courses);
+        List<Course> done_courses_electives = new ArrayList<Course>(courses);
         List<Course> accounted_for_courses = new ArrayList<Course>(done_courses);
         HashMap<String, Pair<CourseOffering, String>> done_course_offerings = new HashMap<String, Pair<CourseOffering, String>>();
+        HashMap<String, Pair<CourseOffering, String>> done_course_offerings_electives = new HashMap<String, Pair<CourseOffering, String>>();
         needed_courses.removeAll(done_courses);
+        done_courses_electives.removeAll(mandatory);
         List<Pair<CourseOffering, String>> result = new ArrayList<Pair<CourseOffering, String>>();
         List<Pair<CourseOffering, String>> result_electives = new ArrayList<Pair<CourseOffering, String>>();
+        List<Course> electives = list_elective_courses();
         // build pair list
         List<CourseOffering> temp = list_enrolled_course_offerings();
         CourseOffering earliest_course = new CourseOffering("9999 Winter");
@@ -531,7 +535,12 @@ public class Gold {
                 if(done_courses.get(k).course_number.equals(temp.get(i).course_number))
                     break;
             }
-            result.add(new Pair<CourseOffering, String>(temp.get(i), done_courses.get(k).title));
+            if(mandatory.indexOf(done_courses.get(k)) >= 0) {
+                result.add(new Pair<CourseOffering, String>(temp.get(i), done_courses.get(k).title));
+            } else {
+                result_electives.add(new Pair<CourseOffering, String>(temp.get(i), done_courses.get(k).title));
+                done_course_offerings_electives.put(temp.get(i).course_number, new Pair<CourseOffering, String>(temp.get(i), done_courses.get(k).title));
+            }
             done_course_offerings.put(temp.get(i).course_number, new Pair<CourseOffering, String>(temp.get(i), done_courses.get(k).title));
             // find earliest course
             if(parseYearQuarter(temp.get(i).year_and_quarter).lessThan(parseYearQuarter(earliest_course.year_and_quarter)))
@@ -542,7 +551,7 @@ public class Gold {
         YearQuarter graduation = parseYearQuarter(current_year_and_quarter);
         List<Integer> done = new ArrayList<Integer>(Collections.nCopies(needed_courses.size(), 0));
 
-        while(result.size() < needed_courses.size() + done_courses.size()) {
+        while(result.size() < needed_courses.size() + done_courses.size() - done_course_offerings_electives.size()) {
             outer:
             for(int i = 0; i < needed_courses.size(); i++) {
                 if(done.get(i) > 0)
@@ -574,19 +583,31 @@ public class Gold {
 
         // load sched with electives
         int electives_left = getMinNumberofElectives();
-        List<Course> electives = list_elective_courses();
+        for(int i = 0; i < done_courses_electives.size(); i++) {
+            electives_left--;
+        }
         done = new ArrayList<Integer>(Collections.nCopies(electives.size(), 0));
+        boolean start = true;
         electives_done:
         for(int year = parseYearQuarter(current_year_and_quarter).year; year < graduation.year + 1; year++) {
             for(int q = 0, classes_left = 5; q < 3; q++) {
+                if(start) {
+                    q = QUARTERS.indexOf(parseYearQuarter(current_year_and_quarter).quarter);
+                    start = false;
+                }
+                if(year == graduation.year && q == 2)
+                    continue;
                 for(int i = 0; i < result.size(); i++) {
                     if(parseYearQuarter(result.get(i).l.year_and_quarter).equals(new YearQuarter(year, QUARTERS.get(q))))
                         classes_left--;
                 }
-
+                for(int i = 0; i < result_electives.size(); i++) {
+                    if(parseYearQuarter(result_electives.get(i).l.year_and_quarter).equals(new YearQuarter(year, QUARTERS.get(q))))
+                        classes_left--;
+                }
                 outer:
                 for(int i = 0; i < electives.size() && classes_left > 0; i++) {
-                    if(done.get(i) > 0)
+                    if(done.get(i) > 0 || done_courses_electives.indexOf(electives.get(i)) >= 0)
                         continue;
                     if(!(electives_left > 0))
                         break electives_done;
@@ -630,7 +651,7 @@ public class Gold {
         System.out.println("\n- * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * -\n");
         System.out.println("\033[1mQUARTER BY QUARTER PLAN FOR STUDENT " + stud_id + "\033[0m\n(* denotes major a requirement)\n");
         System.out.println("Major elective requirement: " + getMinNumberofElectives() + " electives.\n");
-        boolean start = true;
+        start = true;
         for(int year = parseYearQuarter(earliest_course.year_and_quarter).year; year < graduation.year + 1; year++) {
             for(int q = 0; q < 3; q++) {
                 if(start) {
