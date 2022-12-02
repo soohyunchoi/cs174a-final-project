@@ -16,4 +16,8 @@ class CourseOfferings {
         this.professor_fname = professor_fname;
         this.professor_lname = professor_lname;
     }
+    CourseOfferings(String year_and_quarter) {
+        this.course_number = "null_test";
+        this.year_and_quarter = year_and_quarter;
+    }
 }
