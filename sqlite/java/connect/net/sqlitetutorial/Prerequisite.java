@@ -1,5 +1,5 @@
 package net.sqlitetutorial;
-class Prerequisites {
+class Prerequisite {
     String prereq;
     String dependent_course;
 }

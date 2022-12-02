@@ -1,9 +1,9 @@
 package net.sqlitetutorial;
 import java.util.Objects;
-class Courses {
+class Course {
     String course_number;
     String title;
-    Courses(String course_number, String title) {
+    Course(String course_number, String title) {
         this.course_number = course_number;
         this.title = title;
     }
@@ -12,10 +12,10 @@ class Courses {
     }
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Courses)) {
+        if (!(obj instanceof Course)) {
             return false;
         }
-        Courses otherMember = (Courses)obj;
+        Course otherMember = (Course)obj;
         return otherMember.getCourseNumber().equals(getCourseNumber());
     }
     @Override
